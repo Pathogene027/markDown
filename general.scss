@@ -1,0 +1,147 @@
+$borderColor: #4da1ff;
+$shadowMax: 0px 0px 10px 0.2px grey;
+$shadowMin: 0px 0px 10px 0.05px grey;
+body{
+ background-color: rgba(108, 182, 255, 0.6);
+ .container-fluid{
+  margin: 20px 0 20px 0;
+  #preview, #editor{
+    height: auto;
+    background-color: #c9e2ff;
+    border: solid ;
+    border-color: $borderColor;
+    border-style: solid;
+    color: #0d1117;
+    padding: 0px 10px
+   }
+   .preview-section{
+    width: 70%;
+    margin-top: 20px;
+    
+   }
+   .editor-section{
+    width: 60%;
+    
+    .first{
+      margin-bottom: 20px;
+      .textbox{
+        width: 100%;
+        &::-webkit-scrollbar-thumb {
+          background-color: #4da1ff; 
+          border-radius: 6px; 
+          border: 3px solid #f1f1f1; 
+        }
+         &::-webkit-scrollbar {
+            width: 12px; 
+        }
+    
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        &:focus{
+          border: transparent;
+          outline: transparent;
+        }
+      }
+    }
+
+   }
+    #preview {
+      padding-top: 20px;
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid $borderColor;
+      };
+      th {
+        padding: 8px;
+        background-color: #f2f2f2;
+        border: 1px solid $borderColor;
+      };
+      td {
+        padding: 8px;
+        border: 1px solid $borderColor;
+      };
+      svg{
+        width: 40px;
+        height: auto;
+        color: $borderColor
+      }
+    }
+    .col{
+      padding: 0px;
+      box-shadow: $shadowMax;
+      .icon{
+        background-color: $borderColor;
+        width: 100%;
+        .cnt{
+          width: 95%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          h1{
+            position: relative;
+            margin-bottom: 0px;
+            text-decoration: underline;
+          }
+          .fa-solid{
+            width:16px;
+            color:#c9e2ff;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center
+          };
+        }
+        .fa-solid:hover{
+          animation: pump 1s forwards infinite
+        };
+        #initial{
+          font-weight: 700;
+          text-decoration: underline;
+          background-color: green;
+          width:50vw
+        }
+        #last{
+          position: relative;
+          right: 0;
+          width: 50vw;
+        }
+      }
+    }
+    
+    code,pre{
+      background-color: white;
+    }
+    pre{
+      padding-left: 10px
+    }
+    @media (prefers-reduced-motion: no-preference){
+      @keyframes pump {
+        50%{
+          transform:scale(1.5)
+        }
+        100%{
+          transform: scale(1);
+        }
+      }
+    }
+    
+  }
+  
+}
+@media only screen and (max-width: 980px) {
+  body {
+    .preview-section {
+      width: 90% !important;
+    }
+    .editor-section {
+      width: 80% !important;
+    }
+    .col{
+      box-shadow: $shadowMin;
+    }
+  }
+}
